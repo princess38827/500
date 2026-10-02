@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: cluster-chat
+    runtime: node
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: DEMO_MODE
+        value: "true"
+      - key: TRUST_PROXY
+        value: "true"
+      - key: META_API_KEY
+        sync: false
+      - key: META_API_BASE_URL
+        sync: false
+      - key: MUSE_MODEL_ID
+        sync: false
